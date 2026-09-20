@@ -3,92 +3,116 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>HookCraft | Free YouTube Hook & Title Generator</title>
-  <meta name="description" content="Generate high-converting YouTube hooks and viral video titles in seconds. 100% free, no login required." />
+  <title>HookCraft | Free YouTube Hook, Title & Description Generator</title>
+  <meta name="description" content="Generate high-converting YouTube hooks, viral video titles, and SEO descriptions instantly. 100% free with no sign-up." />
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-slate-950 text-slate-100 min-h-screen font-sans antialiased flex flex-col justify-between">
 
-  <!-- Top Navigation -->
+  <!-- Header Navigation -->
   <header class="border-b border-slate-800 bg-slate-900/50 backdrop-blur px-6 py-4 flex items-center justify-between max-w-5xl mx-auto w-full">
     <div class="font-bold text-xl tracking-tight text-white flex items-center gap-2">
       <span class="text-rose-500">▶</span> HookCraft
     </div>
-    <div class="text-xs text-slate-400 border border-slate-700 rounded-full px-3 py-1 font-mono">
-      100% Free • No Sign-Up
+    <div class="flex items-center gap-3">
+      <span class="text-xs text-slate-400 border border-slate-800 bg-slate-900 rounded-full px-3 py-1 font-mono">
+        v1.2 • 100% Free
+      </span>
     </div>
   </header>
 
-  <!-- Core Content Area -->
-  <main class="max-w-3xl mx-auto px-4 py-10 w-full flex-1">
+  <!-- Main Workspace -->
+  <main class="max-w-3xl mx-auto px-4 py-8 sm:py-12 w-full flex-1">
     
     <div class="text-center mb-8">
       <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white mb-3">
-        The Free YouTube <span class="text-rose-500">Hook Generator</span>
+        The Free YouTube <span class="text-rose-500">Creator Engine</span>
       </h1>
-      <p class="text-slate-400 text-base sm:text-lg">Hook your viewers in the first 5 seconds. High-CTR opening scripts with zero friction.</p>
+      <p class="text-slate-400 text-sm sm:text-base max-w-xl mx-auto">
+        Craft viral opening hooks, high-CTR titles, and structured descriptions in seconds.
+      </p>
     </div>
 
-    <!-- Input Form Card -->
+    <!-- Mode Selector Tabs -->
+    <div class="flex p-1 bg-slate-900 border border-slate-800 rounded-xl mb-6 max-w-md mx-auto">
+      <button id="tabHooks" onclick="switchMode('hooks')" class="flex-1 py-2 text-xs sm:text-sm font-semibold rounded-lg transition bg-rose-600 text-white shadow">
+        Hooks
+      </button>
+      <button id="tabTitles" onclick="switchMode('titles')" class="flex-1 py-2 text-xs sm:text-sm font-semibold rounded-lg transition text-slate-400 hover:text-white">
+        Viral Titles
+      </button>
+      <button id="tabDescriptions" onclick="switchMode('descriptions')" class="flex-1 py-2 text-xs sm:text-sm font-semibold rounded-lg transition text-slate-400 hover:text-white">
+        Descriptions
+      </button>
+    </div>
+
+    <!-- Generator Control Panel -->
     <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 sm:p-6 shadow-2xl mb-8">
       <div class="space-y-4">
+        
         <div>
-          <label for="topicInput" class="block text-sm font-medium text-slate-300 mb-1">What is your video topic or main value proposition?</label>
-          <input id="topicInput" type="text" placeholder="e.g. learning to code in 3 months, fixing shoulder pain, productivity systems" 
+          <div class="flex justify-between items-center mb-1">
+            <label id="inputLabel" for="topicInput" class="block text-sm font-medium text-slate-300">
+              What is your video topic or core premise?
+            </label>
+            <span id="charCount" class="text-xs text-slate-500 font-mono">0/120</span>
+          </div>
+          <input id="topicInput" type="text" maxlength="120" oninput="updateCharCount()"
+            placeholder="e.g. learning to code in 3 months, fixing posture, passive income" 
             class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-rose-500 transition text-sm sm:text-base placeholder:text-slate-600" />
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
-            <label for="nicheSelect" class="block text-sm font-medium text-slate-300 mb-1">Video Niche</label>
-            <select id="nicheSelect" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-rose-500 text-sm">
-              <option value="education">Educational / How-To</option>
-              <option value="tech">Tech & Software</option>
-              <option value="fitness">Health & Fitness</option>
+            <label for="nicheSelect" class="block text-xs font-medium text-slate-400 mb-1">Niche Target</label>
+            <select id="nicheSelect" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-2.5 text-white focus:outline-none focus:border-rose-500 text-sm">
+              <option value="tech">Tech, Coding & AI</option>
               <option value="business">Business & Finance</option>
-              <option value="storytelling">Storytelling & Vlogs</option>
+              <option value="fitness">Fitness & Health</option>
+              <option value="education">Education & Science</option>
+              <option value="creative">Creative, Gaming & Vlogs</option>
             </select>
           </div>
-          <div>
-            <label for="formatSelect" class="block text-sm font-medium text-slate-300 mb-1">Format</label>
-            <select id="formatSelect" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-rose-500 text-sm">
+
+          <div id="dynamicOptionContainer">
+            <label id="dynamicOptionLabel" for="dynamicOptionSelect" class="block text-xs font-medium text-slate-400 mb-1">Pacing & Format</label>
+            <select id="dynamicOptionSelect" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-2.5 text-white focus:outline-none focus:border-rose-500 text-sm">
               <option value="long">Long-Form Video (0:00 - 0:15 Hook)</option>
-              <option value="short">Shorts / Reels (Fast 3-Sec Hook)</option>
+              <option value="short">Shorts / Reels (Instant Punchy)</option>
             </select>
           </div>
         </div>
 
-        <button onclick="generateHooks()" class="w-full mt-2 bg-rose-600 hover:bg-rose-500 active:scale-[0.99] text-white font-semibold py-3.5 px-6 rounded-xl transition duration-150 flex items-center justify-center gap-2 shadow-lg shadow-rose-900/20">
-          <span>⚡ Generate 5 Viral Hooks</span>
+        <button onclick="handleGenerate()" class="w-full mt-2 bg-rose-600 hover:bg-rose-500 active:scale-[0.99] text-white font-semibold py-3.5 px-6 rounded-xl transition duration-150 flex items-center justify-center gap-2 shadow-lg shadow-rose-900/20">
+          <span id="btnText">⚡ Generate 5 Viral Hooks</span>
         </button>
       </div>
     </div>
 
-    <!-- Output Section -->
-    <div id="resultsContainer" class="hidden space-y-3 mb-12">
+    <!-- Output Box -->
+    <div id="resultsContainer" class="hidden space-y-4 mb-12">
       <div class="flex items-center justify-between pb-1">
-        <h2 class="text-lg font-bold text-white">Generated Hook Scripts</h2>
+        <h2 id="resultsHeading" class="text-lg font-bold text-white">Generated Ideas</h2>
         <span class="text-xs text-slate-400">Click any card to copy</span>
       </div>
-      <div id="hookList" class="space-y-3"></div>
+      <div id="outputList" class="space-y-3"></div>
     </div>
 
-    <!-- SEO Content Block (Essential for AdSense Crawlers) -->
+    <!-- SEO & Educational Guide Section -->
     <article class="border-t border-slate-800/80 pt-8 text-slate-300 space-y-5 leading-relaxed text-sm">
-      <h2 class="text-lg font-bold text-white">Why YouTube Retention Drops in the First 15 Seconds</h2>
+      <h2 class="text-lg font-bold text-white">How YouTube Recommends Videos: The Hook & CTR Math</h2>
       <p>
-        Data from millions of YouTube uploads shows that channel abandonment is highest during the opening 15 seconds. If a video begins with static logos, repetitive channel greetings, or vague explanations, viewer drop-off spikes sharply. High-performing creators structure their first sentence around immediate curiosity and value delivery.
+        The YouTube algorithm monitors two primary metrics during the first 24 hours of an upload: <strong>Click-Through Rate (CTR)</strong> and <strong>Audience Retention (AVD)</strong>. A title must ignite curiosity or offer clear utility to win the click, while your opening 5-second hook must validate that click immediately without fluff or delay.
       </p>
-      <h3 class="text-base font-semibold text-white">The Three Core Hook Archetypes</h3>
-      <ul class="list-disc pl-5 space-y-2 text-slate-400">
-        <li><strong class="text-slate-200">The Contrarian Truth:</strong> Dismantling a widely accepted industry myth in sentence one.</li>
-        <li><strong class="text-slate-200">The Curiosity Loop:</strong> Promising a specific, high-value result while withholding the key mechanism until mid-video.</li>
-        <li><strong class="text-slate-200">The Negative Consequence:</strong> Calling out a silent, costly mistake that the viewer is currently making.</li>
-      </ul>
+      
+      <h3 class="text-base font-semibold text-white">The Anatomy of a High-CTR Title</h3>
+      <p>
+        Titles under 60 characters prevent truncation on mobile devices, where over 70% of YouTube views occur. Combining high emotional contrast (e.g., <em>"The Easy Way to..."</em> vs <em>"Why You Are Failing at..."</em>) with tangible outcomes consistently drives double-digit CTR improvements.
+      </p>
     </article>
   </main>
 
-  <!-- Legal / Compliance Footer -->
+  <!-- Footer -->
   <footer class="border-t border-slate-900 py-6 text-center text-xs text-slate-500 space-y-2 max-w-5xl mx-auto w-full">
     <div class="flex justify-center gap-4 text-slate-400">
       <a href="#" class="hover:underline">About</a>
@@ -99,47 +123,140 @@
       <span>•</span>
       <a href="#" class="hover:underline">Contact</a>
     </div>
-    <p>&copy; 2026 HookCraft. Free creator productivity tools.</p>
+    <p>&copy; 2026 HookCraft. Free creator tools suite.</p>
   </footer>
 
   <script>
-    function generateHooks() {
-      const input = document.getElementById('topicInput').value.trim();
-      if (!input) {
-        alert("Please enter a video topic or concept.");
+    let activeMode = 'hooks';
+
+    function updateCharCount() {
+      const input = document.getElementById('topicInput');
+      document.getElementById('charCount').innerText = `${input.value.length}/120`;
+    }
+
+    function switchMode(mode) {
+      activeMode = mode;
+      const tabHooks = document.getElementById('tabHooks');
+      const tabTitles = document.getElementById('tabTitles');
+      const tabDesc = document.getElementById('tabDescriptions');
+      const btnText = document.getElementById('btnText');
+      const optLabel = document.getElementById('dynamicOptionLabel');
+      const optSelect = document.getElementById('dynamicOptionSelect');
+
+      // Reset Tab Styles
+      [tabHooks, tabTitles, tabDesc].forEach(btn => {
+        btn.className = "flex-1 py-2 text-xs sm:text-sm font-semibold rounded-lg transition text-slate-400 hover:text-white";
+      });
+
+      if (mode === 'hooks') {
+        tabHooks.className = "flex-1 py-2 text-xs sm:text-sm font-semibold rounded-lg transition bg-rose-600 text-white shadow";
+        btnText.innerText = "⚡ Generate 5 Viral Hooks";
+        optLabel.innerText = "Pacing & Format";
+        optSelect.innerHTML = `
+          <option value="long">Long-Form Video (0:00 - 0:15 Hook)</option>
+          <option value="short">Shorts / Reels (Instant Punchy)</option>
+        `;
+      } else if (mode === 'titles') {
+        tabTitles.className = "flex-1 py-2 text-xs sm:text-sm font-semibold rounded-lg transition bg-rose-600 text-white shadow";
+        btnText.innerText = "⚡ Generate 5 High-CTR Titles";
+        optLabel.innerText = "Title Angle";
+        optSelect.innerHTML = `
+          <option value="curiosity">Curiosity & Cliffhanger</option>
+          <option value="negative">Warning / Mistake (Negative Bias)</option>
+          <option value="howTo">Actionable Guide / Blueprint</option>
+        `;
+      } else if (mode === 'descriptions') {
+        tabDesc.className = "flex-1 py-2 text-xs sm:text-sm font-semibold rounded-lg transition bg-rose-600 text-white shadow";
+        btnText.innerText = "⚡ Generate Description Template";
+        optLabel.innerText = "Description Structure";
+        optSelect.innerHTML = `
+          <option value="seo">SEO & Keyword Rich</option>
+          <option value="minimal">Minimal & Link Focused</option>
+        `;
+      }
+
+      document.getElementById('resultsContainer').classList.add('hidden');
+    }
+
+    function handleGenerate() {
+      const topic = document.getElementById('topicInput').value.trim();
+      if (!topic) {
+        alert("Please enter a video topic or concept first.");
         return;
       }
 
-      const format = document.getElementById('formatSelect').value;
-      let templates = [];
+      const opt = document.getElementById('dynamicOptionSelect').value;
+      const list = document.getElementById('outputList');
+      list.innerHTML = '';
 
-      if (format === 'short') {
-        templates = [
-          `Stop scrolling if you're trying to learn ${input}.`,
-          `This 1 mistake is ruining your progress with ${input}.`,
-          `If I had to start over with ${input} from zero, here’s my exact step 1.`,
-          `Nobody is talking about this shortcut for ${input}.`,
-          `Here is how to master ${input} in 60 seconds.`
-        ];
-      } else {
-        templates = [
-          `"Almost everyone gets ${input} completely wrong. Here's what 99% of people miss..."`,
-          `"If you're still struggling with ${input}, stop following common advice. Do this instead."`,
-          `"I tested the top 3 ways to solve ${input} for 30 days. One method crushed the rest."`,
-          `"Most people think ${input} takes years. But if you fix this one bottleneck today..."`,
-          `"Here is the exact step-by-step roadmap I used to master ${input} — without wasting hours."`
+      let results = [];
+
+      if (activeMode === 'hooks') {
+        if (opt === 'short') {
+          results = [
+            `Stop scrolling if you're trying to learn ${topic}.`,
+            `This 1 mistake is silently ruining your ${topic}.`,
+            `If I had to start over with ${topic} from zero, here is my exact step 1:`,
+            `Nobody is talking about this shortcut for ${topic}...`,
+            `Do NOT touch ${topic} until you see this.`
+          ];
+        } else {
+          results = [
+            `"Almost everyone gets ${topic} completely wrong. Here's what 99% of people miss..."`,
+            `"If you're still struggling with ${topic}, stop following common advice. Do this instead."`,
+            `"I tested the top 3 methods for ${topic} for 30 days. One method crushed everything else."`,
+            `"Most people think ${topic} takes years to master. But if you fix this one bottleneck today..."`,
+            `"Here is the exact step-by-step roadmap I used to figure out ${topic} — without wasting hours."`
+          ];
+        }
+      } else if (activeMode === 'titles') {
+        if (opt === 'curiosity') {
+          results = [
+            `The Truth About ${topic} Nobody Tells You`,
+            `Why 99% of People Fail at ${topic} (And How to Fix It)`,
+            `I Tried ${topic} For 30 Days. Here's What Happened`,
+            `The Only ${topic} Strategy You Will Ever Need`,
+            `Why Smart People Are Quitting ${topic}`
+          ];
+        } else if (opt === 'negative') {
+          results = [
+            `Stop Doing ${topic} Like This (Major Mistake)`,
+            `The Brutal Reality of ${topic} in 2026`,
+            `5 Costly ${topic} Mistakes You Must Avoid`,
+            `Why Your ${topic} Isn't Working (Fix This Now)`,
+            `Never Start ${topic} Before Watching This`
+          ];
+        } else {
+          results = [
+            `How to Master ${topic} Fast (Step-by-Step)`,
+            `The Complete Beginner's Guide to ${topic}`,
+            `The 3-Step Formula for Better ${topic}`,
+            `${topic} Explained in Under 10 Minutes`,
+            `How I Scaled My ${topic} With Zero Experience`
+          ];
+        }
+      } else if (activeMode === 'descriptions') {
+        results = [
+          `In this video, we break down everything you need to know about ${topic}. Whether you are a beginner or looking to optimize your results, this guide covers the exact frameworks, common pitfalls to avoid, and actionable steps to implement today.\n\n📌 Timestamps:\n0:00 - Introduction to ${topic}\n0:45 - The Biggest Mistake to Avoid\n2:30 - Step-by-Step Blueprint\n5:10 - Pro Tips & Next Steps\n\n🔔 Subscribe for more actionable tutorials!`,
+          `Want to master ${topic}? Here is the complete breakdown.\n\nKey takeaways from this video:\n- Why most people struggle with ${topic}\n- The 3 principles that change everything\n- Exact tools & resources used in this video\n\nDrop a comment below with your questions!`
         ];
       }
 
-      const list = document.getElementById('hookList');
-      list.innerHTML = '';
-
-      templates.forEach((hook) => {
+      results.forEach(item => {
         const card = document.createElement('div');
-        card.className = "p-4 bg-slate-900/90 border border-slate-800 rounded-xl flex items-center justify-between gap-4 hover:border-slate-700 transition cursor-pointer group";
-        card.onclick = function() { copyText(hook, this); };
+        card.className = "p-4 bg-slate-900/90 border border-slate-800 rounded-xl flex items-start justify-between gap-4 hover:border-slate-700 transition cursor-pointer group";
+        card.onclick = function() { copyContent(item, this); };
+        
+        // Show character counter if in title mode
+        const metaTag = activeMode === 'titles' 
+          ? `<span class="inline-block mt-1 text-[11px] font-mono text-slate-500">${item.length} characters</span>` 
+          : '';
+
         card.innerHTML = `
-          <p class="text-sm text-slate-200">${hook}</p>
+          <div class="flex-1">
+            <p class="text-sm text-slate-200 whitespace-pre-line">${item}</p>
+            ${metaTag}
+          </div>
           <button class="shrink-0 bg-slate-800 group-hover:bg-slate-700 text-xs px-3 py-1.5 rounded-lg border border-slate-700 text-slate-300 transition">
             Copy
           </button>
@@ -147,12 +264,15 @@
         list.appendChild(card);
       });
 
+      document.getElementById('resultsHeading').innerText = 
+        activeMode === 'hooks' ? 'Generated Hook Scripts' : (activeMode === 'titles' ? 'Generated High-CTR Titles' : 'Ready-to-Paste Descriptions');
+      
       document.getElementById('resultsContainer').classList.remove('hidden');
     }
 
-    function copyText(text, cardElement) {
+    function copyContent(text, card) {
       navigator.clipboard.writeText(text);
-      const btn = cardElement.querySelector('button');
+      const btn = card.querySelector('button');
       const original = btn.innerText;
       btn.innerText = "Copied!";
       btn.className = "shrink-0 bg-emerald-600 text-xs px-3 py-1.5 rounded-lg border border-emerald-500 text-white font-medium transition";
