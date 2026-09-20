@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>HookCraft | Free YouTube Hook, Title & Description Generator</title>
-  <meta name="description" content="Generate high-converting YouTube hooks, viral video titles, and SEO descriptions instantly. 100% free with no sign-up." />
+  <meta name="description" content="Generate high-converting YouTube hooks, viral video titles, and SEO descriptions instantly. 100% free tool with no login required." />
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-slate-950 text-slate-100 min-h-screen font-sans antialiased flex flex-col justify-between">
@@ -16,12 +16,12 @@
     </div>
     <div class="flex items-center gap-3">
       <span class="text-xs text-slate-400 border border-slate-800 bg-slate-900 rounded-full px-3 py-1 font-mono">
-        v1.2 • 100% Free
+        100% Free • No Sign-Up
       </span>
     </div>
   </header>
 
-  <!-- Main Workspace -->
+  <!-- Main Content Container -->
   <main class="max-w-3xl mx-auto px-4 py-8 sm:py-12 w-full flex-1">
     
     <div class="text-center mb-8">
@@ -29,7 +29,7 @@
         The Free YouTube <span class="text-rose-500">Creator Engine</span>
       </h1>
       <p class="text-slate-400 text-sm sm:text-base max-w-xl mx-auto">
-        Craft viral opening hooks, high-CTR titles, and structured descriptions in seconds.
+        Craft viral opening hooks, high-CTR titles, and structured video descriptions in seconds.
       </p>
     </div>
 
@@ -46,10 +46,9 @@
       </button>
     </div>
 
-    <!-- Generator Control Panel -->
+    <!-- Interactive Generator Form -->
     <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 sm:p-6 shadow-2xl mb-8">
       <div class="space-y-4">
-        
         <div>
           <div class="flex justify-between items-center mb-1">
             <label id="inputLabel" for="topicInput" class="block text-sm font-medium text-slate-300">
@@ -74,7 +73,7 @@
             </select>
           </div>
 
-          <div id="dynamicOptionContainer">
+          <div>
             <label id="dynamicOptionLabel" for="dynamicOptionSelect" class="block text-xs font-medium text-slate-400 mb-1">Pacing & Format</label>
             <select id="dynamicOptionSelect" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-2.5 text-white focus:outline-none focus:border-rose-500 text-sm">
               <option value="long">Long-Form Video (0:00 - 0:15 Hook)</option>
@@ -98,33 +97,97 @@
       <div id="outputList" class="space-y-3"></div>
     </div>
 
-    <!-- SEO & Educational Guide Section -->
-    <article class="border-t border-slate-800/80 pt-8 text-slate-300 space-y-5 leading-relaxed text-sm">
-      <h2 class="text-lg font-bold text-white">How YouTube Recommends Videos: The Hook & CTR Math</h2>
+    <!-- In-Depth Content Section (Prevents AdSense "Thin Content" Rejection) -->
+    <article class="border-t border-slate-800/80 pt-10 text-slate-300 space-y-6 leading-relaxed text-sm">
+      <h2 class="text-xl font-bold text-white">How to Optimize YouTube Retention & Click-Through Rates</h2>
       <p>
-        The YouTube algorithm monitors two primary metrics during the first 24 hours of an upload: <strong>Click-Through Rate (CTR)</strong> and <strong>Audience Retention (AVD)</strong>. A title must ignite curiosity or offer clear utility to win the click, while your opening 5-second hook must validate that click immediately without fluff or delay.
+        YouTube's recommendation system evaluates two critical engagement indicators during early distribution: 
+        <strong>Click-Through Rate (CTR)</strong> and <strong>Average View Duration (AVD)</strong>. When a video delivers on its title promise in the first 5 seconds, audience retention graphs flatten out, signaling algorithmic value.
       </p>
-      
-      <h3 class="text-base font-semibold text-white">The Anatomy of a High-CTR Title</h3>
-      <p>
-        Titles under 60 characters prevent truncation on mobile devices, where over 70% of YouTube views occur. Combining high emotional contrast (e.g., <em>"The Easy Way to..."</em> vs <em>"Why You Are Failing at..."</em>) with tangible outcomes consistently drives double-digit CTR improvements.
-      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
+        <div class="bg-slate-900/60 border border-slate-800 p-4 rounded-xl">
+          <h3 class="font-bold text-white mb-1">1. The Hook (0–5s)</h3>
+          <p class="text-xs text-slate-400">Avoid static intro sequences or channel logos. Open immediately with the core problem or intrigue.</p>
+        </div>
+        <div class="bg-slate-900/60 border border-slate-800 p-4 rounded-xl">
+          <h3 class="font-bold text-white mb-1">2. High-CTR Titles</h3>
+          <p class="text-xs text-slate-400">Keep titles between 45–60 characters to prevent truncation on mobile screens and apps.</p>
+        </div>
+        <div class="bg-slate-900/60 border border-slate-800 p-4 rounded-xl">
+          <h3 class="font-bold text-white mb-1">3. Structured SEO</h3>
+          <p class="text-xs text-slate-400">Add detailed timestamps and descriptive search keywords in your video description.</p>
+        </div>
+      </div>
+
+      <h3 class="text-base font-semibold text-white pt-2">Core Psychological Hook Archetypes</h3>
+      <ul class="list-disc pl-5 space-y-2 text-slate-400">
+        <li><strong class="text-slate-200">The Contrarian Angle:</strong> Challenging a widely accepted industry standard to generate curiosity.</li>
+        <li><strong class="text-slate-200">The Specific Outcome:</strong> Promising a precise, measurable result rather than general lifestyle improvements.</li>
+        <li><strong class="text-slate-200">The Avoidance Frame:</strong> Highlighting an invisible mistake that costs viewers time or money.</li>
+      </ul>
     </article>
   </main>
 
-  <!-- Footer -->
-  <footer class="border-t border-slate-900 py-6 text-center text-xs text-slate-500 space-y-2 max-w-5xl mx-auto w-full">
-    <div class="flex justify-center gap-4 text-slate-400">
-      <a href="#" class="hover:underline">About</a>
+  <!-- Legal & Policy Compliance Footer -->
+  <footer class="border-t border-slate-900 py-8 text-center text-xs text-slate-500 space-y-4 max-w-5xl mx-auto w-full">
+    <div class="flex flex-wrap justify-center gap-6 text-slate-400 font-medium">
+      <button onclick="openModal('aboutModal')" class="hover:text-white transition">About</button>
       <span>•</span>
-      <a href="#" class="hover:underline">Privacy Policy</a>
+      <button onclick="openModal('privacyModal')" class="hover:text-white transition">Privacy Policy</button>
       <span>•</span>
-      <a href="#" class="hover:underline">Terms of Service</a>
+      <button onclick="openModal('termsModal')" class="hover:text-white transition">Terms of Service</button>
       <span>•</span>
-      <a href="#" class="hover:underline">Contact</a>
+      <button onclick="openModal('contactModal')" class="hover:text-white transition">Contact</button>
     </div>
-    <p>&copy; 2026 HookCraft. Free creator tools suite.</p>
+    <p>&copy; 2026 HookCraft. Free creator productivity suite.</p>
   </footer>
+
+  <!-- Modal Components for Compliance Policies -->
+  <div id="modalBackdrop" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-40 hidden flex items-center justify-center p-4">
+    <div class="bg-slate-900 border border-slate-800 rounded-2xl max-w-lg w-full p-6 text-left relative max-h-[85vh] overflow-y-auto">
+      <button onclick="closeModals()" class="absolute top-4 right-4 text-slate-400 hover:text-white text-xl font-bold">&times;</button>
+      
+      <!-- About Modal Content -->
+      <div id="aboutModal" class="hidden space-y-3">
+        <h3 class="text-lg font-bold text-white">About HookCraft</h3>
+        <p class="text-xs text-slate-400 leading-relaxed">
+          HookCraft is a free creator productivity suite built to help independent video creators craft compelling video intros, high-CTR titles, and structured descriptions without paying expensive recurring subscription fees.
+        </p>
+        <p class="text-xs text-slate-400 leading-relaxed">
+          All algorithms run instantly on the client side without storing user queries or demanding mandatory account registrations.
+        </p>
+      </div>
+
+      <!-- Privacy Policy Modal Content (Essential for Google AdSense) -->
+      <div id="privacyModal" class="hidden space-y-3">
+        <h3 class="text-lg font-bold text-white">Privacy Policy</h3>
+        <p class="text-xs text-slate-400 leading-relaxed">
+          Your privacy is important to us. HookCraft does not collect, sell, or store your text inputs. All title and hook generation logic executes directly in your browser.
+        </p>
+        <p class="text-xs text-slate-400 leading-relaxed">
+          Third-party vendors, including Google, use cookies to serve ads based on prior visits to this website or other websites. Google's use of advertising cookies enables it and its partners to serve ads based on your visit to this site and/or other sites on the Internet. Users may opt out of personalized advertising by visiting Google Ads Settings.
+        </p>
+      </div>
+
+      <!-- Terms of Service Modal Content -->
+      <div id="termsModal" class="hidden space-y-3">
+        <h3 class="text-lg font-bold text-white">Terms of Service</h3>
+        <p class="text-xs text-slate-400 leading-relaxed">
+          By using HookCraft, you agree that the generated content is provided for informational and creative brainstorming purposes. You retain 100% rights to any titles, hooks, or video scripts generated on the platform.
+        </p>
+      </div>
+
+      <!-- Contact Modal Content -->
+      <div id="contactModal" class="hidden space-y-3">
+        <h3 class="text-lg font-bold text-white">Contact Us</h3>
+        <p class="text-xs text-slate-400 leading-relaxed">
+          Have feedback, suggestions, or feature requests? Reach out to our creator support team at:
+        </p>
+        <p class="text-sm font-mono text-rose-400">support@hookcraft.tools</p>
+      </div>
+    </div>
+  </div>
 
   <script>
     let activeMode = 'hooks';
@@ -143,7 +206,6 @@
       const optLabel = document.getElementById('dynamicOptionLabel');
       const optSelect = document.getElementById('dynamicOptionSelect');
 
-      // Reset Tab Styles
       [tabHooks, tabTitles, tabDesc].forEach(btn => {
         btn.className = "flex-1 py-2 text-xs sm:text-sm font-semibold rounded-lg transition text-slate-400 hover:text-white";
       });
@@ -161,8 +223,8 @@
         btnText.innerText = "⚡ Generate 5 High-CTR Titles";
         optLabel.innerText = "Title Angle";
         optSelect.innerHTML = `
-          <option value="curiosity">Curiosity & Cliffhanger</option>
-          <option value="negative">Warning / Mistake (Negative Bias)</option>
+          <option value="curiosity">Curiosity & Mystery</option>
+          <option value="negative">Negative Frame / Warning</option>
           <option value="howTo">Actionable Guide / Blueprint</option>
         `;
       } else if (mode === 'descriptions') {
@@ -188,7 +250,6 @@
       const opt = document.getElementById('dynamicOptionSelect').value;
       const list = document.getElementById('outputList');
       list.innerHTML = '';
-
       let results = [];
 
       if (activeMode === 'hooks') {
@@ -196,7 +257,7 @@
           results = [
             `Stop scrolling if you're trying to learn ${topic}.`,
             `This 1 mistake is silently ruining your ${topic}.`,
-            `If I had to start over with ${topic} from zero, here is my exact step 1:`,
+            `If I had to start over with ${topic} from zero, here is step 1:`,
             `Nobody is talking about this shortcut for ${topic}...`,
             `Do NOT touch ${topic} until you see this.`
           ];
@@ -237,8 +298,8 @@
         }
       } else if (activeMode === 'descriptions') {
         results = [
-          `In this video, we break down everything you need to know about ${topic}. Whether you are a beginner or looking to optimize your results, this guide covers the exact frameworks, common pitfalls to avoid, and actionable steps to implement today.\n\n📌 Timestamps:\n0:00 - Introduction to ${topic}\n0:45 - The Biggest Mistake to Avoid\n2:30 - Step-by-Step Blueprint\n5:10 - Pro Tips & Next Steps\n\n🔔 Subscribe for more actionable tutorials!`,
-          `Want to master ${topic}? Here is the complete breakdown.\n\nKey takeaways from this video:\n- Why most people struggle with ${topic}\n- The 3 principles that change everything\n- Exact tools & resources used in this video\n\nDrop a comment below with your questions!`
+          `In this video, we break down everything you need to know about ${topic}. Whether you are a beginner or looking to optimize your results, this guide covers the exact frameworks, common pitfalls to avoid, and actionable steps to implement today.\n\n📌 Timestamps:\n0:00 - Introduction to ${topic}\n0:45 - The Biggest Mistake to Avoid\n2:30 - Step-by-Step Blueprint\n5:10 - Pro Tips & Next Steps\n\n🔔 Subscribe for more tutorials!`,
+          `Want to master ${topic}? Here is the complete breakdown.\n\nKey takeaways:\n- Why most people struggle with ${topic}\n- The 3 principles that change everything\n- Exact tools & resources used in this video\n\nDrop a comment below with your questions!`
         ];
       }
 
@@ -247,7 +308,6 @@
         card.className = "p-4 bg-slate-900/90 border border-slate-800 rounded-xl flex items-start justify-between gap-4 hover:border-slate-700 transition cursor-pointer group";
         card.onclick = function() { copyContent(item, this); };
         
-        // Show character counter if in title mode
         const metaTag = activeMode === 'titles' 
           ? `<span class="inline-block mt-1 text-[11px] font-mono text-slate-500">${item.length} characters</span>` 
           : '';
@@ -281,6 +341,23 @@
         btn.className = "shrink-0 bg-slate-800 group-hover:bg-slate-700 text-xs px-3 py-1.5 rounded-lg border border-slate-700 text-slate-300 transition";
       }, 1500);
     }
+
+    // Modal Operations for Policy Pages
+    function openModal(modalId) {
+      document.getElementById('modalBackdrop').classList.remove('hidden');
+      ['aboutModal', 'privacyModal', 'termsModal', 'contactModal'].forEach(id => {
+        document.getElementById(id).classList.add('hidden');
+      });
+      document.getElementById(modalId).classList.remove('hidden');
+    }
+
+    function closeModals() {
+      document.getElementById('modalBackdrop').classList.add('hidden');
+    }
+
+    document.getElementById('modalBackdrop').addEventListener('click', function(e) {
+      if (e.target === this) closeModals();
+    });
   </script>
 </body>
 </html>
