@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Free YouTube Title Generator | High-CTR Viral Titles</title>
+  <meta name="description" content="Generate high-converting, click-worthy YouTube titles that boost CTR. Tested viral formulas with instant character counts. 100% free." />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen font-sans antialiased flex flex-col justify-between">
+
+  <!-- Header -->
+  <header class="border-b border-slate-800 bg-slate-900/50 backdrop-blur px-6 py-4 flex items-center justify-between max-w-5xl mx-auto w-full">
+    <a href="index.html" class="font-bold text-xl tracking-tight text-white flex items-center gap-2">
+      <span class="text-rose-500">▶</span> HookCraft
+    </a>
+    <div class="flex items-center gap-4 text-xs">
+      <a href="index.html" class="text-slate-400 hover:text-white transition">All Tools</a>
+      <a href="shorts-hooks.html" class="text-slate-400 hover:text-white transition">Shorts Hooks</a>
+    </div>
+  </header>
+
+  <!-- Workspace -->
+  <main class="max-w-3xl mx-auto px-4 py-8 sm:py-12 w-full flex-1">
+    
+    <div class="text-center mb-8">
+      <div class="inline-block bg-rose-500/10 border border-rose-500/30 text-rose-400 text-xs px-3 py-1 rounded-full mb-3 font-semibold">
+        CTR Optimization Tool
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white mb-3">
+        Viral YouTube <span class="text-rose-500">Title Generator</span>
+      </h1>
+      <p class="text-slate-400 text-sm sm:text-base max-w-xl mx-auto">
+        Craft titles that demand the click. Mobile-optimized lengths with psychological hooks built in.
+      </p>
+    </div>
+
+    <!-- Generator Box -->
+    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 sm:p-6 shadow-2xl mb-8">
+      <div class="space-y-4">
+        <div>
+          <label for="topicInput" class="block text-sm font-medium text-slate-300 mb-1">
+            What is your video topic?
+          </label>
+          <input id="topicInput" type="text" maxlength="120"
+            placeholder="e.g. passive income, learning blender, fixing bad sleep" 
+            class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-rose-500 transition text-sm sm:text-base placeholder:text-slate-600" />
+        </div>
+
+        <div>
+          <label for="titleAngle" class="block text-xs font-medium text-slate-400 mb-1">Click Trigger</label>
+          <select id="titleAngle" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-2.5 text-white focus:outline-none focus:border-rose-500 text-sm">
+            <option value="curiosity">High Curiosity & Mystery</option>
+            <option value="negative">Fear of Missing Out / Warning</option>
+            <option value="action">Actionable Guide / Blueprint</option>
+          </select>
+        </div>
+
+        <button onclick="generateTitles()" class="w-full mt-2 bg-rose-600 hover:bg-rose-500 active:scale-[0.99] text-white font-semibold py-3.5 px-6 rounded-xl transition duration-150 flex items-center justify-center gap-2 shadow-lg shadow-rose-900/20">
+          <span>⚡ Generate 5 High-CTR Titles</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Output Box -->
+    <div id="resultsContainer" class="hidden space-y-4 mb-12">
+      <div class="flex items-center justify-between pb-1">
+        <h2 class="text-lg font-bold text-white">Generated Titles</h2>
+        <span class="text-xs text-slate-400">Click to copy</span>
+      </div>
+      <div id="outputList" class="space-y-3"></div>
+    </div>
+
+    <!-- SEO Guide Section -->
+    <article class="border-t border-slate-800/80 pt-8 text-slate-300 space-y-5 leading-relaxed text-sm">
+      <h2 class="text-lg font-bold text-white">The Science of YouTube Click-Through Rate (CTR)</h2>
+      <p>
+        Your thumbnail gets the initial glance, but your title confirms the decision to click. According to analytics across top creators, titles that perform best maintain a <strong>character count between 45 and 60 characters</strong>. Anything longer gets cut off with an ellipsis (...) on mobile YouTube feeds.
+      </p>
+      <h3 class="text-base font-semibold text-white">Three Title Mistakes That Kill Impressions</h3>
+      <ul class="list-disc pl-5 space-y-2 text-slate-400">
+        <li><strong class="text-slate-200">Repeating the Thumbnail Text:</strong> Your title and thumbnail should complement each other, not repeat the exact same sentence.</li>
+        <li><strong class="text-slate-200">Bland Descriptive Titles:</strong> <em>"My Workout Routine"</em> generates no curiosity. <em>"The 3 Exercises That Fixed My Shoulder (Permanently)"</em> offers tangible proof.</li>
+        <li><strong class="text-slate-200">Over-Promising Without Delivery:</strong> Pure clickbait spikes initial clicks but collapses retention within 10 seconds, causing the algorithm to stop serving impressions.</li>
+      </ul>
+    </article>
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-900 py-6 text-center text-xs text-slate-500 space-y-2 max-w-5xl mx-auto w-full">
+    <div class="flex justify-center gap-4 text-slate-400">
+      <a href="index.html" class="hover:underline">Home</a>
+      <span>•</span>
+      <a href="shorts-hooks.html" class="hover:underline">Shorts Hooks</a>
+      <span>•</span>
+      <a href="title-generator.html" class="hover:underline">Title Generator</a>
+    </div>
+    <p>&copy; 2026 HookCraft. Free creator tools suite.</p>
+  </footer>
+
+  <script>
+    function generateTitles() {
+      const topic = document.getElementById('topicInput').value.trim();
+      if (!topic) {
+        alert("Please enter a topic first.");
+        return;
+      }
+
+      const angle = document.getElementById('titleAngle').value;
+      let titles = [];
+
+      if (angle === 'curiosity') {
+        titles = [
+          `The Brutal Truth About ${topic} in 2026`,
+          `Why 99% of People Fail at ${topic}`,
+          `I Tested ${topic} For 30 Days (Unexpected Results)`,
+          `The Only ${topic} Guide You Will Ever Need`,
+          `Why Smart Creators Are Changing How They Do ${topic}`
+        ];
+      } else if (angle === 'negative') {
+        titles = [
+          `Stop Doing ${topic} Like This (Costly Mistake)`,
+          `Why Your ${topic} Isn't Working (And How to Fix It)`,
+          `5 Warning Signs You're Doing ${topic} Wrong`,
+          `Never Start ${topic} Before Watching This`,
+          `The Biggest Lie About ${topic} Exposed`
+        ];
+      } else {
+        titles = [
+          `How to Master ${topic} Fast (Step-by-Step)`,
+          `The Complete Beginner's Roadmap for ${topic}`,
+          `The 3-Step System to Optimize ${topic}`,
+          `${topic} Explained Simply in Under 10 Minutes`,
+          `How I Fixed My ${topic} With Zero Budget`
+        ];
+      }
+
+      const list = document.getElementById('outputList');
+      list.innerHTML = '';
+
+      titles.forEach(title => {
+        const card = document.createElement('div');
+        card.className = "p-4 bg-slate-900/90 border border-slate-800 rounded-xl flex items-center justify-between gap-4 hover:border-slate-700 transition cursor-pointer group";
+        card.onclick = function() { copyText(title, this); };
+        card.innerHTML = `
+          <div>
+            <p class="text-sm text-slate-200">${title}</p>
+            <span class="inline-block mt-1 text-[11px] font-mono text-slate-500">${title.length} characters</span>
+          </div>
+          <button class="shrink-0 bg-slate-800 group-hover:bg-slate-700 text-xs px-3 py-1.5 rounded-lg border border-slate-700 text-slate-300 transition">
+            Copy
+          </button>
+        `;
+        list.appendChild(card);
+      });
+
+      document.getElementById('resultsContainer').classList.remove('hidden');
+    }
+
+    function copyText(text, card) {
+      navigator.clipboard.writeText(text);
+      const btn = card.querySelector('button');
+      const original = btn.innerText;
+      btn.innerText = "Copied!";
+      btn.className = "shrink-0 bg-emerald-600 text-xs px-3 py-1.5 rounded-lg border border-emerald-500 text-white font-medium transition";
+      setTimeout(() => {
+        btn.innerText = original;
+        btn.className = "shrink-0 bg-slate-800 group-hover:bg-slate-700 text-xs px-3 py-1.5 rounded-lg border border-slate-700 text-slate-300 transition";
+      }, 1500);
+    }
+  </script>
+</body>
+</html>
